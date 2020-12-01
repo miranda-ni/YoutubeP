@@ -27,12 +27,7 @@ abstract class BaseActivity<ViewModel : BaseViewModel>(
 ) : AppCompatActivity() {
     val configuration: Configuration? = null
 
-
-
-
     val viewModel: ViewModel by lazy { getViewModel<ViewModel>(viewModelClass) }
-
-
     override fun attachBaseContext(newBase: Context?) {
         super.attachBaseContext(newBase)
         loadLocate()
@@ -55,6 +50,23 @@ abstract class BaseActivity<ViewModel : BaseViewModel>(
         actionBar!!.title = resources.getString(R.string.app_name)
         loadLocate()
         showChangeLang() }
+
+
+
+    private fun showError() {
+
+        viewModel.errorMessage.observeForever {
+            showToast(it)
+        }
+
+    }
+
+    abstract fun setupFetchRequests()
+
+
+    abstract fun setupViews()
+
+    abstract fun setupLiveData()
 
     private fun setLocate(Lang: String) {
 
@@ -104,21 +116,4 @@ abstract class BaseActivity<ViewModel : BaseViewModel>(
         val mDialog = mBuilder.create()
         mDialog.show()
     }
-
-    private fun showError() {
-
-        viewModel.errorMessage.observeForever {
-            showToast(it)
-        }
-
-    }
-
-    abstract fun setupFetchRequests()
-
-
-    abstract fun setupViews()
-
-    abstract fun setupLiveData()
-
-
 }
