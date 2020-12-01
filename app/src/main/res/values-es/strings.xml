@@ -2,16 +2,18 @@
 <resources>
 
     <string name="app_name">First App</string>
-    <string name="playlist">grhrthgrrh</string>
-    <string name="emotional_well_being_healing_practices_for_children">Балдар үчүн эмоционалдык жыргалчылыкты айыктыруу практикасы</string>
-    <string name="in_this_sin_this_series_we_break_down_the_impact_of_displacement_instability_violence_and_trauma_in_children_and_offer_exercises_to_support_children_in_their_healing_journey">Бул серияда, биз балдардагы жер которуунун, туруксуздуктун, зордук-зомбулуктун жана травманын таасирин талкалайбыз жана балдардын айыгып кетишине жардам берүүчү көнүгүүлөрдү сунуштайбыз.</string>
-    <string name="_32_video_series">32 видео сериясы</string>
-    <string name="video_series">видео серия</string>
-    <string name="back">Артка</string>
+    <string name="playlist">
+llista de reproducció</string>
+    <string name="emotional_well_being_healing_practices_for_children">La pràctica de curar el benestar emocional dels nens</string>
+    <string name="in_this_sin_this_series_we_break_down_the_impact_of_displacement_instability_violence_and_trauma_in_children_and_offer_exercises_to_support_children_in_their_healing_journey">
+En aquesta sèrie, desglossem els efectes del desplaçament, la inestabilitat, la violència i el trauma en els nens i oferim exercicis per ajudar els nens a recuperar-se..</string>
+    <string name="_32_video_series">32 sèries de vídeos</string>
+    <string name="video_series">sèries de vídeos</string>
+    <string name="back">esquena</string>
 
-    <string name="video_time">видеонун убакыты</string>
+    <string name="video_time">temps de vídeo</string>
     <string name="todo">TODO</string>
 
-    <string name="playlist1">ойноо тизмеси</string>
+    <string name="playlist1">llista de reproducció</string>
 
 </resources>
