@@ -49,29 +49,22 @@ class DetailVideoActivity :
             intent.putExtra("title", playlist.snippet?.title)
             intent.putExtra("countVideo", playlist.contentDetails?.itemCount)
             intent.putExtra("image", playlist.snippet?.thumbnails?.medium?.url)
-
-
             activity?.startActivity(intent)
-
         }
     }
-
     private fun onItemClick1(item: PlaylistItems) {
         // DetailVideoActivity.instanceActivity(this, item)
     }
 
-
-
     override fun setupFetchRequests() {
     backBtn.setOnClickListener(View.OnClickListener {
-        video_recyclerView.layoutManager?.scrollToPosition(adapter.holder.position-1)
-    })
+        if (adapter.holder.adapterPosition!=0) {
+            video_recyclerView.layoutManager?.scrollToPosition(adapter.holder.adapterPosition - 1)
+        }})
 
         nextBtn.setOnClickListener(View.OnClickListener {
 
             video_recyclerView.layoutManager?.scrollToPosition(adapter.holder.position+1)
-
-
         })
     }
 
