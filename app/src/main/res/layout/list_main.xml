@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:id="@+id/container"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="200dp"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="144dp"
+            android:textSize="15sp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:text="Emotional Well-being  Healing Practices for Children"
+            android:textAppearance="@style/emotional"
+            android:gravity="top"
+            android:layout_alignParentStart="true"
+            android:textColor="@color/black"
+            />
+        <ImageView
+            android:id="@+id/whiteImage"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="16dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="-9dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="16dp" />
+
+
+        <TextView
+            android:id="@+id/series"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="144dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="45dp"
+            android:text="hfhfhfnfghnhnhn"
+            android:textColor="@color/black"
+            android:gravity="top"
+            android:textSize="15sp"
+            />
+
+        <ImageView
+            android:id="@+id/blackImage"
+            android:layout_width="120dp"
+            android:layout_height="24dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="16dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="44dp"
+            android:background="@drawable/blackgroundplaylist"
+            />
+        <TextView
+            android:id="@+id/playlist"
+            android:layout_width="40dp"
+            android:layout_height="16dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="70dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="49dp"
+            android:text="playlist"
+            android:textAppearance="@style/playlist"
+            android:gravity="top"
+            android:textColor="@color/white"
+             android:textSize="10sp"
+            />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

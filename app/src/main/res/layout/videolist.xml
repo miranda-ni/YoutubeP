@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="650dp"
+    android:id="@+id/DetailContainerVideo"
+    >
+
+    <ImageView
+
+
+        android:id="@+id/mainImage"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/rectangle_8"
+
+        />
+
+
+
+    <TextView
+        android:id="@+id/titleVideo"
+        android:layout_width="328dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="291dp"
+
+        android:textAppearance="@style/how_displac"
+        android:gravity="top"
+        />
+
+
+
+    <android.widget.Button
+        android:id="@+id/btnDownload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="351dp"
+
+
+        android:background="@drawable/rectangle_3"
+
+        />
+
+
+
+
+
+    <TextView
+        android:id="@+id/descriptionVideo"
+        android:layout_width="328dp"
+        android:layout_height="198dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="407dp"
+
+        android:textAppearance="@style/refugee_chi"
+        android:gravity="top"
+        />
+
+
+
+
+</androidx.cardview.widget.CardView>
