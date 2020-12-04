@@ -12,10 +12,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+
         android:theme="@style/Theme.FirstApp">
         <activity android:name=".ui.detail_playlist.DetailPlaylistActivity" />
 
-     <activity android:name="com.example.DetailVideo.DetailVideoActivity">
+     <activity android:name="com.example.DetailVideo.DetailVideoActivity"
+         android:configChanges="orientation|keyboardHidden|screenSize|layoutDirection"
+         >
 
      </activity>
         <activity android:name=".ui.playlists.PlaylistsActivity">

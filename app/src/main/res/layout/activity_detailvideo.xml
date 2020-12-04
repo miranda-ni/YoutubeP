@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+
+    >
 
     <RelativeLayout
         android:id="@+id/relmyVideo"
@@ -65,8 +67,89 @@
     </RelativeLayout>
 
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DetailContainerVideo"
+       android:layout_marginTop="50dp"
+        >
 
-    <android.widget.Button
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="27dp"
+            android:id="@+id/player_view"
+            app:resize_mode="fit"
+            app:hide_on_touch="true"
+            app:show_timeout="5000"
+            app:rewind_increment="10000"
+            app:use_controller="true"
+            android:background="@drawable/rectangle_8"
+            app:player_layout_id="@layout/exo_simple_player_view"
+            app:controller_layout_id="@layout/custom_controller"
+            />
+        <ProgressBar
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/progress_bar"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="100dp"
+            />
+
+
+
+        <TextView
+            android:id="@+id/titleVideo"
+            android:layout_width="328dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="16dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="291dp"
+
+            android:textAppearance="@style/how_displac"
+            android:gravity="top"
+            />
+
+
+
+        <android.widget.Button
+            android:id="@+id/btnDownload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="16dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="351dp"
+
+
+            android:background="@drawable/rectangle_3"
+
+            />
+
+
+
+
+
+        <TextView
+            android:id="@+id/descriptionVideo"
+            android:layout_width="328dp"
+            android:layout_height="198dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="16dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="407dp"
+
+            android:textAppearance="@style/refugee_chi"
+            android:gravity="top"
+            />
+
+
+
+
+    </androidx.cardview.widget.CardView>
+    <!--
+         <android.widget.Button
        android:id="@+id/backBtn"
         android:layout_width="29dp"
         android:layout_height="29dp"
@@ -91,14 +174,9 @@
         android:background="@drawable/play_arro"
         />
 
+        -->
 
-<androidx.recyclerview.widget.RecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="40dp"
-tools:listitem="@layout/videolist"
-    android:id="@+id/video_recyclerView"
-    />
+
 
 
 

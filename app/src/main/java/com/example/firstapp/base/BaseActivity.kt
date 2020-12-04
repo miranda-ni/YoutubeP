@@ -12,6 +12,8 @@ import android.os.PersistableBundle
 import android.preference.PreferenceManager
 import android.view.ContextThemeWrapper
 import android.view.View
+import android.view.WindowInsets
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import com.example.firstapp.R
@@ -33,9 +35,12 @@ abstract class BaseActivity<ViewModel : BaseViewModel>(
         loadLocate()
 
     }
-
+    @Override
+    @SuppressWarnings("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
         setContentView(layoutId)
         setupViews()
         setupLiveData()
