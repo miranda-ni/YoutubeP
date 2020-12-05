@@ -12,9 +12,13 @@ class DetVideoViewModel(var repository: YoutubeRepository) : BaseViewModel() {
     var detailPlaylists = MutableLiveData<MutableList<PlaylistItems>>()
     var detail: MutableList<PlaylistItems>? = mutableListOf()
     var playlistId: String? = null
-    fun fetchPlaylistVideo(playlistId: String?, nextPageToken: String? = null) {
+    fun fetchPlaylistVideo(
+        playlistId: String?,
+        nextPageToken: String? = null,
+        videoId: String? = null
+    ) {
         this.playlistId = playlistId
-        repository.fetchDetailPlaylists(playlistId, nextPageToken).observeForever {
+        repository.fetchDetailPlaylists(playlistId, nextPageToken, videoId).observeForever {
             when (it.status) {
                 Status.SUCCESS -> getAllVideo(it?.data)
                 Status.ERROR -> errorMessage.value = it.message.toString()
@@ -24,12 +28,13 @@ class DetVideoViewModel(var repository: YoutubeRepository) : BaseViewModel() {
 
     private fun getAllVideo(data: Playlist?) {
         data?.items?.let { detail?.addAll(it) }
-        if (!data?.nextPageToken.isNullOrEmpty()) fetchPlaylistVideo(playlistId, data?.nextPageToken)
+        if (!data?.nextPageToken.isNullOrEmpty()) fetchPlaylistVideo(
+            playlistId,
+            data?.nextPageToken
+        )
         else detailPlaylists.value = detail
 
     }
-
-
 
 
 }

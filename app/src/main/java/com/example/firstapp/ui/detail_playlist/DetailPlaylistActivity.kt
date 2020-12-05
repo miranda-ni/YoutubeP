@@ -23,23 +23,16 @@ class DetailPlaylistActivity : BaseActivity<DetailPlaylistViewModel>(R.layout.ac
     private var videoCount:String?=null
 
     // override val viewModel by inject<DetailPlaylistViewModel>()
-
     private lateinit var adapter: DetailPlaylistAdapter
-
-
-
     private fun setupAdapter() {
         adapter = DetailPlaylistAdapter(this,this::onItemClick)
         recycler_viewDetail.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         recycler_viewDetail.adapter = adapter
     }
 
-
-
-
     private fun onItemClick(item: PlaylistItems) {
         //showToast(item.toString())
-        DetailVideoActivity.instanceActivity(this, item,adapter.holder.adapterPosition)
+        DetailVideoActivity.instanceActivity(this, item)
     adapter.holder
     }
 
@@ -48,7 +41,6 @@ class DetailPlaylistActivity : BaseActivity<DetailPlaylistViewModel>(R.layout.ac
             adapter.addItems(it)
         }
     }
-
     private fun fetchDetailPlaylist() {
         this.viewModel.fetchPlaylistVideo((playlist?.id))
     }
@@ -58,9 +50,6 @@ class DetailPlaylistActivity : BaseActivity<DetailPlaylistViewModel>(R.layout.ac
             showToast(it)
         }
     }
-
-
-
 
 
     companion object {

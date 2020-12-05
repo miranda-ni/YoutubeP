@@ -1,6 +1,7 @@
 package com.example.firstapp.repository
 
 import androidx.lifecycle.liveData
+import com.example.DetailVideo.DetailVideoActivity
 import com.example.RoomBd.PlaylistDao
 import com.example.firstapp.data.network.Resource
 import com.example.firstapp.data.network.YoutubeApi
@@ -40,7 +41,6 @@ class YoutubeRepository(private var api: YoutubeApi,var dao: PlaylistDao): BaseR
     val part = "snippet,contentDetails"
 
 
-
     fun fetchPlaylists() = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         emit(Resource.loading(dao.getPlaylist()))
@@ -57,13 +57,25 @@ class YoutubeRepository(private var api: YoutubeApi,var dao: PlaylistDao): BaseR
         }
     }
 
-    fun fetchDetailPlaylists(playlistId: String?, pageToken: String?) = liveData(Dispatchers.IO) {
+    fun fetchDetailPlaylists(playlistId: String?, pageToken: String?,videoId: String?) = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         // emit(Resource.fetchFromDB(dao.getPlaylist()))
         try {
-            emit(Resource.success(data = api.fetchDetailPlaylist(part, key, playlistId, pageToken)))
+            emit(Resource.success(data = api.fetchDetailPlaylist(part, key, playlistId, pageToken,videoId)))
         } catch (e: Exception) {
             emit(Resource.error(data = null, message =  e.message ?: "Error"))
         }
     }
+
+
+    fun getVideo(playlistId: String?, pageToken: String?,videoId: String?) = liveData(Dispatchers.IO) {
+        emit(Resource.loading(data = null))
+        // emit(Resource.fetchFromDB(dao.getPlaylist()))
+        try {
+            emit(Resource.success(data = api.fetchDetailPlaylist(part, key, playlistId, pageToken,videoId)))
+        } catch (e: Exception) {
+            emit(Resource.error(data = null, message =  e.message ?: "Error"))
+        }
+    }
+
 }

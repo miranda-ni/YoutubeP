@@ -8,6 +8,7 @@ import android.content.res.Configuration
 import android.content.res.Configuration.ORIENTATION_LANDSCAPE
 import android.content.res.Configuration.ORIENTATION_PORTRAIT
 import android.net.Uri
+import android.util.Log
 import android.view.View
 import android.view.View.GONE
 import android.view.ViewGroup
@@ -30,20 +31,23 @@ import com.google.android.exoplayer2.trackselection.TrackSelector
 import com.google.android.exoplayer2.upstream.BandwidthMeter
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import kotlinx.android.synthetic.main.activity_detail_playlist.*
 import kotlinx.android.synthetic.main.activity_detailvideo.*
 import kotlinx.android.synthetic.main.custom_controller.*
 import retrofit2.http.Url
 
 class DetailVideoActivity :
     BaseActivity<DetVideoViewModel>(R.layout.activity_detailvideo, DetVideoViewModel::class) {
-    private lateinit var simpleExoPlayer: SimpleExoPlayer
-    private var flag: Boolean = false
+    private var title: String? = null
+    private var description: String? = null
     val bottomSheetFragment = MyBottomSheetFragment()
-
-
+    var video: String? = playlist?.contentDetails?.videoId
+    val videoPath: String? = "https://www.youtube.com/watch?v=$video"
     private fun subscribeDetailPlaylist() {
 
-        btnDownload.setOnClickListener(View.OnClickListener {
+        changeVideo.setOnClickListener(View.OnClickListener {
 
 
             bottomSheetFragment.show(supportFragmentManager, "BottomSheetDialog")
@@ -56,31 +60,19 @@ class DetailVideoActivity :
         var playlist: PlaylistItems? = null
         fun instanceActivity(
             activity: Activity?,
-            playlist: PlaylistItems,
-            adapterPosition: Int
+            playlist: PlaylistItems
         ) {
             val intent = Intent(activity, DetailVideoActivity::class.java)
             this.playlist = playlist
 
-            intent.putExtra("description", playlist.snippet?.description?.length)
+            intent.putExtra("description", playlist.snippet?.description.toString())
             intent.putExtra("title", playlist.snippet?.title)
             intent.putExtra("countVideo", playlist.contentDetails?.itemCount)
             intent.putExtra("image", playlist.snippet?.thumbnails?.medium?.url)
             activity?.startActivity(intent)
-
-
-            val intent1 = Intent()
-            var ur: String? = intent1.getStringExtra("image")
-
         }
-
-
     }
 
-
-    private fun onItemClick1(item: PlaylistItems) {
-        // DetailVideoActivity.instanceActivity(this, item)
-    }
 
     override fun setupFetchRequests() {
 
@@ -92,128 +84,14 @@ class DetailVideoActivity :
 
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun setupViews() {
+        player_view.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+            override fun onReady(youTubePlayer: YouTubePlayer) {
+                videoPath.let { video?.let { it1 -> youTubePlayer.loadVideo(it1, 0f) } }
 
-
-        val link = "https://www.radiantmediaplayer.com/media/bbb-360p.mp4"
-        val videoUri: Uri = Uri.parse(link)
-
-
-        val loadControl: LoadControl = DefaultLoadControl()
-        val bandwidthMeter: BandwidthMeter = DefaultBandwidthMeter()
-        val trackSelector: TrackSelector = DefaultTrackSelector(
-            AdaptiveTrackSelection.Factory(bandwidthMeter)
-        )
-
-
-
-        simpleExoPlayer = ExoPlayerFactory.newSimpleInstance(
-            this, trackSelector, loadControl
-        )
-        val factory: DefaultHttpDataSourceFactory = DefaultHttpDataSourceFactory("exoplayer_video")
-
-
-        val extractorsFactory = DefaultExtractorsFactory()
-        val mediaSource: MediaSource =
-            ExtractorMediaSource(videoUri, factory, extractorsFactory, null, null)
-
-        player_view.player = simpleExoPlayer
-        player_view.keepScreenOn = true
-        simpleExoPlayer.prepare(mediaSource)
-        simpleExoPlayer.playWhenReady = true
-
-
-        simpleExoPlayer.addListener(object : Player.EventListener {
-            override fun onPlaybackParametersChanged(playbackParameters: PlaybackParameters?) {
-
-            }
-
-            override fun onSeekProcessed() {
-
-            }
-
-
-            override fun onTracksChanged(
-                trackGroups: TrackGroupArray?,
-                trackSelections: TrackSelectionArray?
-            ) {
-
-            }
-
-            override fun onPlayerError(error: ExoPlaybackException?) {
-
-            }
-
-            override fun onLoadingChanged(isLoading: Boolean) {
-
-            }
-
-            override fun onPositionDiscontinuity(reason: Int) {
-
-            }
-
-            override fun onRepeatModeChanged(repeatMode: Int) {
-
-            }
-
-            override fun onShuffleModeEnabledChanged(shuffleModeEnabled: Boolean) {
-
-            }
-
-            override fun onTimelineChanged(timeline: Timeline?, manifest: Any?, reason: Int) {
-
-            }
-
-            override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
-
-                if (playbackState == Player.STATE_BUFFERING) {
-                    progress_bar.visibility = View.VISIBLE
-
-                } else if (playbackState == Player.STATE_READY) {
-
-                    progress_bar.visibility = GONE
-
-                }
+                Log.d("билем", "билем" + video)
+                getIntent2()
             }
         })
-
-        bt_fullScreen.setOnClickListener(View.OnClickListener {
-            if (flag) {
-
-
-                val drawable = resources.getDrawable(R.drawable.ic_fullscreen)
-                bt_fullScreen.setImageDrawable(drawable)
-                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-                flag = false
-            } else {
-                val drawable = resources.getDrawable(R.drawable.ic_fullscreen_exit)
-                bt_fullScreen.setImageDrawable(drawable)
-                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-                flag = true
-            }
-
-
-        })
-        //simpleExoPlayer.addListener(object : EventListener {}
-
-
-    }
-
-    override fun setupLiveData() {
-        subscribeDetailPlaylist()
-        fetchDetailPlaylist()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        simpleExoPlayer.playWhenReady = false
-        simpleExoPlayer.playbackState
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        simpleExoPlayer.playWhenReady = true
-        simpleExoPlayer.playbackState
-
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -247,6 +125,23 @@ class DetailVideoActivity :
         run(params)
         layoutParams = params
 
+    }
+
+    override fun setupLiveData() {
+        subscribeDetailPlaylist()
+        fetchDetailPlaylist()
+
+    }
+
+    private fun getIntent2() {
+
+
+        val intent: Intent = intent
+        title = intent.getStringExtra("description")
+        description = intent.getStringExtra("title")
+
+        titleVideo.text = title
+        descriptionVideo.text = description
     }
 
 }
