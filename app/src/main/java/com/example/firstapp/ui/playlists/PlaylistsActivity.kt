@@ -48,4 +48,8 @@ class PlaylistsActivity :
             initLanguage()
         }
     }
+
+    override fun forSetOnClickListener() {
+
+    }
 }

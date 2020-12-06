@@ -45,34 +45,30 @@ abstract class BaseActivity<ViewModel : BaseViewModel>(
         setupViews()
         setupLiveData()
         setupFetchRequests()
+        forSetOnClickListener()
         showError()
         loadLocate()
+
+
     }
 
 
     fun initLanguage() {
-        val actionBar = supportActionBar
-        actionBar!!.title = resources.getString(R.string.app_name)
+      //  val actionBar = supportActionBar
+       // actionBar!!.title = resources.getString(R.string.app_name)
         loadLocate()
         showChangeLang() }
 
-
-
     private fun showError() {
-
         viewModel.errorMessage.observeForever {
             showToast(it)
         }
 
     }
-
+    abstract fun forSetOnClickListener()
     abstract fun setupFetchRequests()
-
-
     abstract fun setupViews()
-
     abstract fun setupLiveData()
-
     private fun setLocate(Lang: String) {
 
         val locale = Locale(Lang)

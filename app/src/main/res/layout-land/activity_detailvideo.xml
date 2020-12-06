@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
     >
+
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,7 +17,7 @@
         <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
             android:id="@+id/player_view"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -41,6 +43,7 @@
                 android:layout_marginTop="241dp"
                 android:textAppearance="@style/how_displac"
                 android:gravity="top"
+                android:visibility="gone"
                 />
 
 
@@ -53,7 +56,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="301dp"
-
+                android:visibility="gone"
 
                 android:background="@drawable/rectangle_3"
 
@@ -70,7 +73,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="357dp"
-
+                android:visibility="gone"
                 android:textAppearance="@style/refugee_chi"
                 android:gravity="top"
                 />
@@ -139,4 +142,4 @@
 
 
 
-</RelativeLayout>
+</LinearLayout>

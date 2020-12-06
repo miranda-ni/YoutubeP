@@ -31,7 +31,6 @@ class DetailPlaylistActivity : BaseActivity<DetailPlaylistViewModel>(R.layout.ac
     }
 
     private fun onItemClick(item: PlaylistItems) {
-        //showToast(item.toString())
         DetailVideoActivity.instanceActivity(this, item)
     adapter.holder
     }
@@ -40,9 +39,6 @@ class DetailPlaylistActivity : BaseActivity<DetailPlaylistViewModel>(R.layout.ac
         viewModel.detailPlaylists.observeForever {
             adapter.addItems(it)
         }
-    }
-    private fun fetchDetailPlaylist() {
-        this.viewModel.fetchPlaylistVideo((playlist?.id))
     }
 
     private fun subscribeErrorMessage() {
@@ -79,10 +75,6 @@ class DetailPlaylistActivity : BaseActivity<DetailPlaylistViewModel>(R.layout.ac
         video_seriesCount.text= videoCount+" video series"
 
     }
-
-
-
-
     override fun setupViews() {
         setupAdapter()
 
@@ -96,6 +88,10 @@ class DetailPlaylistActivity : BaseActivity<DetailPlaylistViewModel>(R.layout.ac
     }
 
     override fun setupFetchRequests() {
+
+    }
+
+    override fun forSetOnClickListener() {
 
     }
 }
