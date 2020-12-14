@@ -1,4 +1,4 @@
-package com.example.DetailVideo
+package com.example.firstapp.ui.DetailVideo
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

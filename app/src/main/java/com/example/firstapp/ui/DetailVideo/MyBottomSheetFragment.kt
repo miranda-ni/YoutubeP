@@ -1,6 +1,5 @@
-package com.example.DetailVideo
+package com.example.firstapp.ui.DetailVideo
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +12,7 @@ import com.example.firstapp.ui.detail_playlist.adapter.DetailPlaylistAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.bottom_sheet_fragment.*
 
-class MyBottomSheetFragment : BottomSheetDialogFragment() {
+class YoutubeBottomSheetFragment : BottomSheetDialogFragment() {
     private lateinit var adapter: DetailPlaylistAdapter
     private lateinit var viewModel: DetVideoViewModel
 

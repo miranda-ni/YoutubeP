@@ -1,8 +1,7 @@
 package com.example.firstapp.repository
 
 import androidx.lifecycle.liveData
-import com.example.DetailVideo.DetailVideoActivity
-import com.example.RoomBd.PlaylistDao
+import com.example.firstapp.RoomBd.PlaylistDao
 import com.example.firstapp.data.network.Resource
 import com.example.firstapp.data.network.YoutubeApi
 import kotlinx.coroutines.Dispatchers

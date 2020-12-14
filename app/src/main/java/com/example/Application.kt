@@ -14,16 +14,6 @@ class App: Application() {
         startKoin {
             androidLogger()
             androidContext(this@App)
-//            inject()
-//            modules(listOf(repositoryModule, fragmentModule, viewModelModule, networkModule))
             modules(listOf(networkModule, dbModule, repositoryModule,viewModelModule))
         }
-    }
-
-    /*fun inject() = loadKoinModules
-
-    private val loadKoinModules by lazy {
-        loadKoinModules(listOf(repositoryModule, fragmentModule, viewModelModule, networkModule))
-    }*/
-
-}
+    } }

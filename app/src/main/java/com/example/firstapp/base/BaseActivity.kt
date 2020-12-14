@@ -33,7 +33,6 @@ abstract class BaseActivity<ViewModel : BaseViewModel>(
     override fun attachBaseContext(newBase: Context?) {
         super.attachBaseContext(newBase)
         loadLocate()
-
     }
     @Override
     @SuppressWarnings("DEPRECATION")
@@ -47,15 +46,8 @@ abstract class BaseActivity<ViewModel : BaseViewModel>(
         setupFetchRequests()
         forSetOnClickListener()
         showError()
-        loadLocate()
-
-
-    }
-
-
+        loadLocate() }
     fun initLanguage() {
-      //  val actionBar = supportActionBar
-       // actionBar!!.title = resources.getString(R.string.app_name)
         loadLocate()
         showChangeLang() }
 
@@ -94,9 +86,7 @@ abstract class BaseActivity<ViewModel : BaseViewModel>(
     }
 
     private fun showChangeLang() {
-
         val listItmes = arrayOf("Espain", "Kyrgyz", "English")
-
         val mBuilder = AlertDialog.Builder(this)
         mBuilder.setTitle("Choose Language")
         mBuilder.setSingleChoiceItems(listItmes, -1) { dialog, which ->

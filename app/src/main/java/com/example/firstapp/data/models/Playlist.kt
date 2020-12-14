@@ -36,8 +36,11 @@ data class Snippet(
 )
 
 data class Thumbnails(
-    var medium: Medium? = null
+    var medium: Medium? = null,
+    var high:High?=null
 )
+
+ data class High ( var url:String?=null)
 
 data class Medium(
     var url: String? = null

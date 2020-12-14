@@ -84,30 +84,30 @@
 
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:layout_marginTop="550dp"
-            android:id="@+id/relativeId"
-            android:background="@color/red"
-            >
 
-
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Choose another video"
-                android:textColor="@color/black"
-                android:textAlignment="center"
-                android:layout_marginTop="40dp"
-                android:textSize="33sp"
-                />
-
-
-        </RelativeLayout>
     </androidx.cardview.widget.CardView>
+
+
+    <androidx.appcompat.widget.Toolbar
+
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+
+        android:background="@color/newColor"
+        app:layout_scrollFlags="scroll|enterAlways"
+        android:layout_marginTop="600dp">
+
+
+
+
+
+
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
     <!--
          <android.widget.Button
        android:id="@+id/backBtn"

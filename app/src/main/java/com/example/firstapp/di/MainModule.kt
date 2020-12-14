@@ -1,6 +1,6 @@
 package com.example.firstapp.di
-import com.example.DetailVideo.DetVideoViewModel
-import com.example.RoomBd.DatabaseClient
+import com.example.firstapp.ui.DetailVideo.DetVideoViewModel
+import com.example.firstapp.RoomBd.DatabaseClient
 import com.example.firstapp.data.network.provideYoutubeApi
 import com.example.firstapp.repository.YoutubeRepository
 import com.example.firstapp.ui.detail_playlist.DetailPlaylistViewModel

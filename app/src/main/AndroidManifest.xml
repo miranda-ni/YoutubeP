@@ -18,7 +18,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize|layoutDirection"
             />
 
-     <activity android:name="com.example.DetailVideo.DetailVideoActivity"
+     <activity android:name="com.example.firstapp.ui.DetailVideo.DetailVideoActivity"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
          android:label="singleTask launchMode"
          android:configChanges="orientation|keyboardHidden|screenSize"

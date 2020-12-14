@@ -1,4 +1,4 @@
-package com.example.DetailVideo
+package com.example.firstapp.ui.DetailVideo
 
 import androidx.lifecycle.MutableLiveData
 import com.example.firstapp.base.BaseViewModel

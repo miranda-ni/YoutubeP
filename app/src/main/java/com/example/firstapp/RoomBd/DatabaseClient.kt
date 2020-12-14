@@ -1,4 +1,4 @@
-package com.example.RoomBd
+package com.example.firstapp.RoomBd
 
 import android.content.Context
 import androidx.room.Room
